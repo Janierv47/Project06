@@ -25,6 +25,7 @@ namespace Project06.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+            //ggtg
         }
     }
 }
