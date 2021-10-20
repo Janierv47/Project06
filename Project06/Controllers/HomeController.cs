@@ -26,9 +26,7 @@ namespace Project06.Controllers
 
             return View();
            
-            //fasdfsa
 
-            //pruebaAndrey
         }
     }
 }
