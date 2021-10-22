@@ -229,9 +229,6 @@
       <DependentUpon>SucursalBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoClienteModel.cs" />
-    <Compile Include="Models\VW_Ejemplo.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -245,8 +242,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\SucursalBDModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SucursalBDModel.Context.cs</LastGenOutput>
       <DependentUpon>SucursalBDModel.edmx</DependentUpon>
+      <LastGenOutput>SucursalBDModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\SucursalBDModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -273,6 +270,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\TipoCliente\nuevoTipoCliente.js" />
+    <Content Include="Scripts\TipoCliente\RegistroTipoCliente.js" />
+    <Content Include="Scripts\Validaciones.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -290,6 +290,7 @@
     <Content Include="Views\TipoCliente\TipoClienteLista.cshtml" />
     <Content Include="Views\TipoCliente\nuevoTipoCliente.cshtml" />
     <Content Include="Views\TipoCliente\TipoClienteModifica.cshtml" />
+    <Content Include="Views\TipoCliente\TipoClienteElimina.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

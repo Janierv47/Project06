@@ -113,22 +113,6 @@
           <Property Name="monto" Type="float" Nullable="false" />
           <Property Name="fechaDeLaTransferencia" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'proyecto06.dbo.VW_Ejemplo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="VW_Ejemplo">
-          <Key>
-            <PropertyRef Name="nombre" />
-            <PropertyRef Name="id_cliente" />
-            <PropertyRef Name="nombreCliente" />
-            <PropertyRef Name="segundoApellido" />
-            <PropertyRef Name="primerApellido" />
-          </Key>
-          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="id_cliente" Type="int" Nullable="false" />
-          <Property Name="nombreCliente" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="segundoApellido" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="primerApellido" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <Association Name="FK_tblCliente_tblTipoCliente">
           <End Role="tblTipoCliente" Type="Self.tblTipoCliente" Multiplicity="1" />
           <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="*" />
@@ -430,15 +414,6 @@ advertencia 6002: La tabla o vista 'proyecto06.dbo.VW_Ejemplo' no tiene definida
           <EntitySet Name="tblTipoMovimiento" EntityType="Self.tblTipoMovimiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTipoUsuario" EntityType="Self.tblTipoUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTransferencia" EntityType="Self.tblTransferencia" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="VW_Ejemplo" EntityType="Self.VW_Ejemplo" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[VW_Ejemplo].[nombre] AS [nombre], 
-[VW_Ejemplo].[id_cliente] AS [id_cliente], 
-[VW_Ejemplo].[nombreCliente] AS [nombreCliente], 
-[VW_Ejemplo].[segundoApellido] AS [segundoApellido], 
-[VW_Ejemplo].[primerApellido] AS [primerApellido]
-FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_tblCliente_tblTipoCliente" Association="Self.FK_tblCliente_tblTipoCliente">
             <End Role="tblTipoCliente" EntitySet="tblTipoCliente" />
             <End Role="tblCliente" EntitySet="tblCliente" />
@@ -607,20 +582,6 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
           <NavigationProperty Name="tblCuenta" Relationship="Self.fk_tblTransferencia_tblCuenta" FromRole="tblTransferencia" ToRole="tblCuenta" />
           <NavigationProperty Name="tblCuenta1" Relationship="Self.fk_tblTransferencia_tblCuentaDestino" FromRole="tblTransferencia" ToRole="tblCuenta" />
         </EntityType>
-        <EntityType Name="VW_Ejemplo">
-          <Key>
-            <PropertyRef Name="nombre" />
-            <PropertyRef Name="id_cliente" />
-            <PropertyRef Name="nombreCliente" />
-            <PropertyRef Name="segundoApellido" />
-            <PropertyRef Name="primerApellido" />
-          </Key>
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="id_cliente" Type="Int32" Nullable="false" />
-          <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="segundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="primerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
         <Association Name="FK_tblCliente_tblTipoCliente">
           <End Role="tblTipoCliente" Type="Self.tblTipoCliente" Multiplicity="1" />
           <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="*" />
@@ -741,7 +702,6 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
           <EntitySet Name="tblTipoMovimiento" EntityType="Self.tblTipoMovimiento" />
           <EntitySet Name="tblTipoUsuario" EntityType="Self.tblTipoUsuario" />
           <EntitySet Name="tblTransferencia" EntityType="Self.tblTransferencia" />
-          <EntitySet Name="VW_Ejemplo" EntityType="Self.VW_Ejemplo" />
           <AssociationSet Name="FK_tblCliente_tblTipoCliente" Association="Self.FK_tblCliente_tblTipoCliente">
             <End Role="tblTipoCliente" EntitySet="tblTipoCliente" />
             <End Role="tblCliente" EntitySet="tblCliente" />
@@ -1178,17 +1138,6 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VW_Ejemplo">
-            <EntityTypeMapping TypeName="proyecto06Model.VW_Ejemplo">
-              <MappingFragment StoreEntitySet="VW_Ejemplo">
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
-                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
-                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="proyecto06Model.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_AutenticacionUsuario" FunctionName="proyecto06Model.Store.sp_AutenticacionUsuario">
             <ResultMapping>
@@ -1387,7 +1336,7 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="true" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

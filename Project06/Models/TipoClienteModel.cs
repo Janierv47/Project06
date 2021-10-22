@@ -7,11 +7,9 @@ namespace Project06.Models
 {
     public class TipoClienteModel
     {
-     
-
-       
-            public string nombreTipoCliente { set; get; }
-            public string descripcionTipoCliente { set; get; }
+        public string nombreTipoCliente { set; get; }
+        
+        public string descripcionTipoCliente { set; get; }
 
         
     }

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2661d84b7ac647bdaa71dab17a89fded" Name="Diagram1">
+      <Diagram DiagramId="e789055b595c4057bbc1df551449692a" Name="Diagram1">
         <EntityTypeShape EntityType="proyecto06Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="proyecto06Model.tblCliente" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="proyecto06Model.tblCuenta" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="proyecto06Model.tblTipoMovimiento" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="proyecto06Model.tblTipoUsuario" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="proyecto06Model.tblTransferencia" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="proyecto06Model.VW_Ejemplo" Width="1.5" PointX="9.75" PointY="6.25" IsExpanded="true" />
         <AssociationConnector Association="proyecto06Model.FK_tblCliente_tblTipoCliente" ManuallyRouted="false" />
         <AssociationConnector Association="proyecto06Model.fk_tblCuenta_tblCliente" ManuallyRouted="false" />
         <AssociationConnector Association="proyecto06Model.fk_tblCuenta_tblMoneda" ManuallyRouted="false" />

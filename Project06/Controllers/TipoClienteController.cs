@@ -10,12 +10,11 @@ namespace Project06.Controllers
     public class TipoClienteController : Controller
     {
         proyecto06Entities modeloBD = new proyecto06Entities();
-        // GET: TipoCliente
-        public ActionResult TipoClientes()
+        // GET: RegistroTipoCliente
+        public ActionResult TipoCliente()
         {
             return View();
         }
-
 
 
         public ActionResult TipoClienteLista()
@@ -27,7 +26,7 @@ namespace Project06.Controllers
 
 
         /*[HttpPost]
-        public ActionResult InsertaTipoCliente(TipoClienteModel modeloVista)
+        public ActionResult nuevoTipoCliente(TipoClienteModel modeloVista)
         {
 
             string nombre = modeloVista.nombreTipoCliente;
@@ -49,9 +48,7 @@ namespace Project06.Controllers
                 cantRegistrosAfectados =
                     this.modeloBD.sp_InsertTipoCliente(
                         modeloVista.nombre,
-                        modeloVista.descripcion
-                       
-                        );
+                        modeloVista.descripcion);
             }
             catch (Exception error)
             {
@@ -69,7 +66,7 @@ namespace Project06.Controllers
                 }
 
             }
-            Response.Write("<script language=javascript>alert('" + resultado + "')</script>");
+            Response.Write("<script language=javascript>alert('" +resultado+ "')</script>");
 
             return View();
 
@@ -91,14 +88,13 @@ namespace Project06.Controllers
 
             int cantRegistrosAfectados = 0;
             string resultado = "";
+            
             try
             {
                 cantRegistrosAfectados = this.modeloBD.sp_UpdateTipoCliente(
                    modeloVista.id_tipoCliente,
                    modeloVista.nombre,
-                   modeloVista.descripcion
-
-                        );
+                   modeloVista.descripcion);
             }
             catch (Exception error)
             {
@@ -107,13 +103,10 @@ namespace Project06.Controllers
             finally
             {
                 if (cantRegistrosAfectados > 0)
-                {
                     resultado = "Registro modificado";
-                }
                 else
-                {
                     resultado += "No se pudo modificar";
-                }
+                
 
             }
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
@@ -135,7 +128,7 @@ namespace Project06.Controllers
         }
 
         [HttpPost]
-        public ActionResult PersonaElimina(sp_RetornaTipoClienteID_Result modeloVista)
+        public ActionResult TipoClienteElimina(sp_RetornaTipoClienteID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
             ///si un procedimiento que ejecuta insert, update o delete
@@ -172,5 +165,5 @@ namespace Project06.Controllers
 
     }
 
-    }
-} 
+}
+
