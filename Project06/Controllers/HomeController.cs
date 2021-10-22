@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Project06
+using Project06.Models;
 
 namespace Project06.Controllers
 {
@@ -30,4 +30,4 @@ namespace Project06.Controllers
 
         }
     }
-}
+}     
