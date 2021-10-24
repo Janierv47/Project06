@@ -7,34 +7,35 @@ using Project06.Models;
 
 namespace Project06.Controllers
 {
-    public class TipoClienteController : Controller
+    public class TipoCuentaController : Controller
     {
         proyecto06Entities modeloBD = new proyecto06Entities();
-        // GET: RegistroTipoCliente
-        public ActionResult TipoCliente()
+        // GET: RegistroTipoCuenta
+        public ActionResult Index()
         {
             return View();
         }
 
 
-        public ActionResult TipoClienteLista()
+        public ActionResult TipoCuentaLista()
         {
-            List<sp_RetornaTipoCliente_Result> modeloVista = new List<sp_RetornaTipoCliente_Result>();
-            modeloVista = this.modeloBD.sp_RetornaTipoCliente("", "").ToList();
+            List<sp_RetornaTipoCuenta_Result> modeloVista = new List<sp_RetornaTipoCuenta_Result>();
+            modeloVista = this.modeloBD.sp_RetornaTipoCuenta("", "").ToList();
             return View(modeloVista);
         }
 
 
-      
-        public ActionResult nuevoTipoCliente() { 
-       
+
+        public ActionResult nuevoTipoCuenta()
+        {
+
             return View();
         }
 
-       
+
 
         [HttpPost]
-        public ActionResult nuevoTipoCliente(sp_RetornaTipoCliente_Result modeloVista)
+        public ActionResult nuevoTipoCuenta(sp_RetornaTipoCuenta_Result modeloVista)
         {
             int cantRegistrosAfectados = 0;
             string resultado = "";
@@ -42,9 +43,9 @@ namespace Project06.Controllers
             try
             {
                 cantRegistrosAfectados =
-                    this.modeloBD.sp_InsertTipoCliente(
+                    this.modeloBD.sp_InsertTipoCuenta(
                         modeloVista.nombre,
-                        modeloVista.descripcion);
+                        modeloVista.codigo);
             }
             catch (Exception error)
             {
@@ -62,21 +63,21 @@ namespace Project06.Controllers
                 }
 
             }
-            Response.Write("<script language=javascript>alert('" +resultado+ "')</script>");
+            Response.Write("<script language=javascript>alert('" + resultado + "')</script>");
 
             return View();
 
         }
 
-        public ActionResult TipoClienteModifica(int id_tipoCliente)
+        public ActionResult TipoCuentaModifica(int id_tipoCuenta)
         {
-            sp_RetornaTipoClienteID_Result modeloVista = new sp_RetornaTipoClienteID_Result();
-            modeloVista = this.modeloBD.sp_RetornaTipoClienteID(id_tipoCliente).FirstOrDefault();
+            sp_RetornaTipoCuentaID_Result modeloVista = new sp_RetornaTipoCuentaID_Result();
+            modeloVista = this.modeloBD.sp_RetornaTipoCuentaID(id_tipoCuenta).FirstOrDefault();
             return View(modeloVista);
         }
 
         [HttpPost]
-        public ActionResult TipoClienteModifica(sp_RetornaTipoClienteID_Result modeloVista)
+        public ActionResult TipoCuentaModifica(sp_RetornaTipoCuentaID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
             ///si un procedimiento que ejecuta insert, update o delete
@@ -84,13 +85,13 @@ namespace Project06.Controllers
 
             int cantRegistrosAfectados = 0;
             string resultado = "";
-            
+
             try
             {
-                cantRegistrosAfectados = this.modeloBD.sp_UpdateTipoCliente(
-                   modeloVista.id_tipoCliente,
+                cantRegistrosAfectados = this.modeloBD.sp_UpdateTipoCuenta(
+                   modeloVista.id_tipoCuenta,
                    modeloVista.nombre,
-                   modeloVista.descripcion);
+                   modeloVista.codigo);
             }
             catch (Exception error)
             {
@@ -102,7 +103,7 @@ namespace Project06.Controllers
                     resultado = "Registro modificado";
                 else
                     resultado = "No se pudo modificar";
-                
+
 
             }
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
@@ -111,20 +112,20 @@ namespace Project06.Controllers
 
         }
 
-        public ActionResult TipoClienteElimina(int id_TipoCliente)
+        public ActionResult TipoCuentaElimina(int id_TipoCuenta)
         {
             ///obtener el registro que se desea modificar
             ///utilizando el parámetro del método id_TipoCiente
-            sp_RetornaTipoClienteID_Result modeloVista = new sp_RetornaTipoClienteID_Result();
-            modeloVista = this.modeloBD.sp_RetornaTipoClienteID(id_TipoCliente).FirstOrDefault();
-            
+            sp_RetornaTipoCuentaID_Result modeloVista = new sp_RetornaTipoCuentaID_Result();
+            modeloVista = this.modeloBD.sp_RetornaTipoCuentaID(id_TipoCuenta).FirstOrDefault();
+
             return View(modeloVista);
 
 
         }
 
         [HttpPost]
-        public ActionResult TipoClienteElimina(sp_RetornaTipoClienteID_Result modeloVista)
+        public ActionResult TipoCuentaElimina(sp_RetornaTipoCuentaID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
             ///si un procedimiento que ejecuta insert, update o delete
@@ -136,7 +137,7 @@ namespace Project06.Controllers
             try
             {
                 cantRegistrosAfectados =
-                    this.modeloBD.sp_DeleteTipoCliente(modeloVista.id_tipoCliente);
+                    this.modeloBD.sp_DeleteTipoCuenta(modeloVista.id_tipoCuenta);
             }
             catch (Exception error)
             {
@@ -159,7 +160,10 @@ namespace Project06.Controllers
         }
 
 
+
+
+
+
+
     }
-
 }
-

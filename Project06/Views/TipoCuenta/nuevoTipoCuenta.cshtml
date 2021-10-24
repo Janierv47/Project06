@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "nuevoTipoCuenta";
+}
+
+<h2>Inserción nuevo tipo de cuenta</h2>
+
+<form id="frmnuevoTipoCuenta" method="post">
+    <div class="form-group">
+        <label>Nombre de tipo de cuenta:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Código:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+    <a href="~/TipoCuenta/TipoCuentaLista">Regresar a la lista</a>
+
+
+
+</form>
+@section scripts{
+    <script src="~/Scripts/TipoCuenta/nuevoTipoCuenta.js"></script>
+}

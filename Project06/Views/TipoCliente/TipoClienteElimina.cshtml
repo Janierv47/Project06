@@ -7,11 +7,14 @@
 <form id="frmNuevoTipoCliente" method="post">
     <input type="hidden" name="id_tipoCliente" id="id_tipoCliente" value="@Model.id_tipoCliente" />
     <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" value="@Model.nombre" readonly />
+    </div>
+
+    <div class="form-group">
         <label>Descripcion:</label>
         <input type="text" name="descripcion" id="descripcion" class="form-control" value="@Model.descripcion" readonly />
     </div>
-
-  
 
     <div class="form-group">
         <input type="submit" value="Guardar" id="btnAceptar" />

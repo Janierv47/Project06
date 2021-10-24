@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TipoClienteController.cs" />
+    <Compile Include="Controllers\TipoCuentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,6 +230,7 @@
       <DependentUpon>SucursalBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoClienteModel.cs" />
+    <Compile Include="Models\TipoCuentaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -272,6 +274,8 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\TipoCliente\nuevoTipoCliente.js" />
     <Content Include="Scripts\TipoCliente\RegistroTipoCliente.js" />
+    <Content Include="Scripts\TipoCuenta\nuevoTipoCuenta.js" />
+    <Content Include="Scripts\TipoCuenta\RegistroTipoCuenta.js" />
     <Content Include="Scripts\Validaciones.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -291,6 +295,10 @@
     <Content Include="Views\TipoCliente\nuevoTipoCliente.cshtml" />
     <Content Include="Views\TipoCliente\TipoClienteModifica.cshtml" />
     <Content Include="Views\TipoCliente\TipoClienteElimina.cshtml" />
+    <Content Include="Views\TipoCuenta\TipoCuentaLista.cshtml" />
+    <Content Include="Views\TipoCuenta\nuevoTipoCuenta.cshtml" />
+    <Content Include="Views\TipoCuenta\TipoCuentaModifica.cshtml" />
+    <Content Include="Views\TipoCuenta\TipoCuentaElimina.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

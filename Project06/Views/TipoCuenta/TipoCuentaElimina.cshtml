@@ -1,0 +1,32 @@
+﻿
+@model Project06.Models.sp_RetornaTipoCuentaID_Result
+@{
+    ViewBag.Title = "Elimina Tipo Cuenta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="frmNuevoTipoCuenta" method="post">
+    <input type="hidden" name="id_tipoCuenta" id="id_tipoCuenta" value="@Model.id_tipoCuenta" />
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" value="@Model.nombre" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Código:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.codigo" readonly />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+    <a href="~/TipoCuenta/TipoCuentaLista">Regresar a la lista</a>
+</form>
+
+@section Scripts{
+    @* *****No es necesario incluir jquery porque
+        ya el layout lo incluye*@
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/scripts/TipoCuenta/Validaciones.js")
+    @Scripts.Render("~/scripts/TipoCuenta/nuevoTipoCuenta.js")
+}

@@ -1,0 +1,42 @@
+﻿
+@model List<Project06.Models.sp_RetornaTipoCuenta_Result>
+@{
+    ViewBag.Title = "TipoCuentaLista";
+}
+
+<h2>Lista de Tipos de Cuentas </h2>
+<a href="~/TipoCuenta/nuevoTipoCuenta">Agregar un nuevo tipo de cuenta</a>
+
+<table class="table" cssclass="table-bordered">
+    <tr>
+        <th>Nombre</th>
+        <th>Código</th>
+
+
+    </tr>
+    @{
+        foreach (Project06.Models.sp_RetornaTipoCuenta_Result posicionModelo in this.Model)
+        {
+
+            <tr>
+
+                <td>@posicionModelo.nombre</td>
+                <td>@posicionModelo.codigo</td>
+
+                <td>
+
+
+                    <a href="~/TipoCuenta/TipoCuentaModifica?id_tipoCuenta=@posicionModelo.id_tipoCuenta">Modificar</a>
+                    <br />
+                    <a href="~/TipoCuenta/TipoCuentaElimina?id_tipoCuenta=@posicionModelo.id_tipoCuenta">Eliminar</a>
+
+                </td>
+            </tr>
+
+        }
+
+
+    }
+
+
+</table>

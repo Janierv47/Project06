@@ -1,23 +1,23 @@
-﻿///document on ready del view Registro de TipoCliente
+﻿///document on ready del view Registro de TipoCuenta
 $(function () {
     creaValidaciones();
 });
 
 ///crea las validaciones para el formulario
 function creaValidaciones() {
-    $("#frmNuevoTipoCliente").validate({
+    $("#frmNuevoTipoCuenta").validate({
         ///objeto que contiene "las condiciones" que el formulario
         ///debe cumplir para ser considerado válido
         rules: {
             nombre: {
                 required: true,
                 minlength: 3,
-                maxlength: 7
+                maxlength: 15
             },
-            descripcion: {
+            codigo: {
                 required: true
             },
-            
+
         }
     });
 }
