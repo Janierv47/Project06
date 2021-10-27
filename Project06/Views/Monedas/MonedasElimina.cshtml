@@ -1,0 +1,35 @@
+﻿@model Project06.Models.sp_RetornaMonedaID_Result
+@{
+    ViewBag.Title = "MonedasElimina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="frmMonedasElimina" method="post">
+    <input type="hidden" name="id_tipoCliente" id="id_tipoCliente" value="@Model.id_moneda" />
+    <div class="form-group">
+        <label>Nombre de tipo de cliente:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" value="@Model.nombre" readonly/>
+    </div>
+
+    <div class="form-group">
+        <label>Código:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.codigo" readonly/>
+    </div>
+
+    <div class="form-group">
+        <label>Tipo de cambio:</label>
+        <input type="text" name="tipoCambio" id="tipoCambio" class="form-control" value="@Model.tipoCambio" readonly/>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+    <a href="~/Monedas/MonedasLista">Regresar a la lista</a>
+</form>
+
+@section Scripts{
+    @* *****No es necesario incluir jquery porque
+        ya el layout lo incluye*@
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/scripts/TipoCliente/Validaciones.js")
+    @Scripts.Render("~/scripts/TipoCliente/nuevoTipoCliente.js")
+}

@@ -1,0 +1,53 @@
+﻿@model List<Project06.Models.sp_RetornaCuentas_Result>
+
+@{
+    ViewBag.Title = "CuentasLista";
+}
+
+<h2>Cuentas Lista</h2>
+
+<a href="~/Cuentas/nuevoCuentas">Agregar nueva cuenta</a>
+
+<table class="table">
+    <tr>
+        <th>Número de cuenta</th>
+        <th>ID del cliente</th>
+        <th>ID del tipo de cuenta</th>
+        <th>ID de la moneda</th>
+        <th>Saldo</th>
+        <th>Estado</th>
+
+
+    </tr>
+    @{
+        foreach (Project06.Models.sp_RetornaCuentas_Result posicionModelo in this.Model)
+        {
+
+            <tr>
+
+                <td>@posicionModelo.numeroCuenta</td>
+                <td>@posicionModelo.id_cliente</td>
+                <td>@posicionModelo.id_tipoCuenta</td>
+                <td>@posicionModelo.id_moneda</td>
+                <td>@posicionModelo.saldo</td>
+                <td>@posicionModelo.estado</td>
+
+
+
+                <td>
+
+
+                    <a href="~/Cuentas/CuentasModifica?id_cuenta=@posicionModelo.id_cuenta">Modificar</a>
+                    <br />
+                    <a href="~/Cuentas/CuentasElimina?id_cuenta=@posicionModelo.id_cuenta">Eliminar</a>
+
+                </td>
+            </tr>
+
+        }
+
+
+    }
+
+
+</table>

@@ -127,7 +127,10 @@
     <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\CuentasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MonedasController.cs" />
     <Compile Include="Controllers\TipoClienteController.cs" />
     <Compile Include="Controllers\TipoCuentaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -149,6 +152,12 @@
       <DependentUpon>SucursalBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_RetornaClienteID_Result.cs">
+      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_RetornaCliente_Result.cs">
       <DependentUpon>SucursalBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaCuentaID_Result.cs">
@@ -226,11 +235,11 @@
     <Compile Include="Models\tblTipoUsuario.cs">
       <DependentUpon>SucursalBDModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tblTransferencia.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TipoClienteModel.cs" />
     <Compile Include="Models\TipoCuentaModel.cs" />
+    <Compile Include="Models\VW_Ejemplo.cs">
+      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -299,6 +308,18 @@
     <Content Include="Views\TipoCuenta\nuevoTipoCuenta.cshtml" />
     <Content Include="Views\TipoCuenta\TipoCuentaModifica.cshtml" />
     <Content Include="Views\TipoCuenta\TipoCuentaElimina.cshtml" />
+    <Content Include="Views\Monedas\nuevoMoneda.cshtml" />
+    <Content Include="Views\Monedas\MonedasLista.cshtml" />
+    <Content Include="Views\Monedas\MonedasModifica.cshtml" />
+    <Content Include="Views\Monedas\MonedasElimina.cshtml" />
+    <Content Include="Views\Cuentas\CuentasLista.cshtml" />
+    <Content Include="Views\Cuentas\nuevoCuentas.cshtml" />
+    <Content Include="Views\Cuentas\CuentasModifica.cshtml" />
+    <Content Include="Views\Cuentas\CuentasElimina.cshtml" />
+    <Content Include="Views\Clientes\ClienteElimina.cshtml" />
+    <Content Include="Views\Clientes\ClientesLista.cshtml" />
+    <Content Include="Views\Clientes\ClienteModifica.cshtml" />
+    <Content Include="Views\Clientes\nuevoCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

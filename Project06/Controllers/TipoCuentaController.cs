@@ -76,6 +76,15 @@ namespace Project06.Controllers
             return View(modeloVista);
         }
 
+        public ActionResult TipoClienteModifica(int id_tipoCliente)
+        {
+            sp_RetornaTipoClienteID_Result modeloVista = new sp_RetornaTipoClienteID_Result();
+            modeloVista = this.modeloBD.sp_RetornaTipoClienteID(id_tipoCliente).FirstOrDefault();
+            return View(modeloVista);
+        }
+
+
+
         [HttpPost]
         public ActionResult TipoCuentaModifica(sp_RetornaTipoCuentaID_Result modeloVista)
         {

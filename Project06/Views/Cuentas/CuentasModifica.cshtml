@@ -1,0 +1,46 @@
+﻿@model Project06.Models.sp_RetornaCuentaID_Result
+
+@{
+    ViewBag.Title = "CuentasModifica";
+}
+
+<h2>CuentasModifica</h2>
+
+<form id="frmModificaCuentas" method="post">
+    <div class="form-group">
+        <label>Número de cuenta:</label>
+        <input type="text" name="numeroCuenta" id="numeroCuenta" class="form-control" value="@Model.numeroCuenta" />
+    </div>
+
+    <div class="form-group">
+        <label>ID del cliente:</label>
+        <input type="text" name="idCliente" id="idCliente" class="form-control" value="@Model.id_cliente"/>
+    </div>
+
+    <div class="form-group">
+        <label>ID del tipo de cuenta:</label>
+        <input type="text" name="tipoCuenta" id="tipoCuenta" class="form-control" value="@Model.id_tipoCuenta"/>
+    </div>
+
+    <div class="form-group">
+        <label>ID de la moneda:</label>
+        <input type="text" name="idMoneda" id="idMoneda" class="form-control" value="@Model.id_moneda"/>
+    </div>
+
+    <div class="form-group">
+        <label>Saldo:</label>
+        <input type="text" name="saldo" id="saldo" class="form-control" value="@Model.saldo"/>
+    </div>
+
+    <div class="form-group">
+        <label>Estado:</label>
+        <input type="text" name="Estado" id="Estado" class="form-control" value="@Model.estado"/>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+    <a href="~/Cuentas/CuentasLista">Regresar a la lista</a>
+
+
+</form>
