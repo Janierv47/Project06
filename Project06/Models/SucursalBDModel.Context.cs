@@ -378,27 +378,6 @@ namespace Project06.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Retiro", id_CuentaParameter, montoParameter, fechaDelMovimientoParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaCliente_Result> sp_RetornaCliente(string primerApellido, string segundoApellido, string nombre, string correo)
-        {
-            var primerApellidoParameter = primerApellido != null ?
-                new ObjectParameter("primerApellido", primerApellido) :
-                new ObjectParameter("primerApellido", typeof(string));
-    
-            var segundoApellidoParameter = segundoApellido != null ?
-                new ObjectParameter("segundoApellido", segundoApellido) :
-                new ObjectParameter("segundoApellido", typeof(string));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var correoParameter = correo != null ?
-                new ObjectParameter("correo", correo) :
-                new ObjectParameter("correo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaCliente_Result>("sp_RetornaCliente", primerApellidoParameter, segundoApellidoParameter, nombreParameter, correoParameter);
-        }
-    
         public virtual ObjectResult<sp_RetornaClienteID_Result> sp_RetornaClienteID(Nullable<int> id_cliente)
         {
             var id_clienteParameter = id_cliente.HasValue ?
@@ -450,19 +429,6 @@ namespace Project06.Models
                 new ObjectParameter("id_moneda", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaMonedaID_Result>("sp_RetornaMonedaID", id_monedaParameter);
-        }
-    
-        public virtual ObjectResult<sp_RetornaTipoCliente_Result> sp_RetornaTipoCliente(string nombre, string descripcion)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("descripcion", descripcion) :
-                new ObjectParameter("descripcion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTipoCliente_Result>("sp_RetornaTipoCliente", nombreParameter, descripcionParameter);
         }
     
         public virtual ObjectResult<sp_RetornaTipoClienteID_Result> sp_RetornaTipoClienteID(Nullable<int> id_tipoCliente)
@@ -679,6 +645,40 @@ namespace Project06.Models
                 new ObjectParameter("numeroCuenta", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_VerMovimiento_Result>("sp_VerMovimiento", numeroCuentaParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaCliente_Result> sp_RetornaCliente(string primerApellido, string segundoApellido, string nombre, string correo)
+        {
+            var primerApellidoParameter = primerApellido != null ?
+                new ObjectParameter("primerApellido", primerApellido) :
+                new ObjectParameter("primerApellido", typeof(string));
+    
+            var segundoApellidoParameter = segundoApellido != null ?
+                new ObjectParameter("segundoApellido", segundoApellido) :
+                new ObjectParameter("segundoApellido", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaCliente_Result>("sp_RetornaCliente", primerApellidoParameter, segundoApellidoParameter, nombreParameter, correoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaTipoCliente_Result> sp_RetornaTipoCliente(string nombre, string descripcion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTipoCliente_Result>("sp_RetornaTipoCliente", nombreParameter, descripcionParameter);
         }
     }
 }

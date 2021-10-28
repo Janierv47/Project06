@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="proyecto06Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="proyecto06Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -459,8 +459,7 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
             <End Role="tblMovimiento" EntitySet="tblMovimiento" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="proyecto06Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -751,25 +750,25 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
             <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="sp_CuentasDestino" ReturnType="Collection(proyecto06Model.sp_CuentasDestino_Result)">
-            <Parameter Name="id_cuenta" Mode="In" Type="Int32" />
+          <Parameter Name="id_cuenta" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_CuentasUsuario" ReturnType="Collection(proyecto06Model.sp_CuentasUsuario_Result)">
-            <Parameter Name="id_cliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_cliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_DeleteCliente">
-            <Parameter Name="id_cliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_cliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_DeleteCuenta">
-            <Parameter Name="id_cuenta" Mode="In" Type="Int32" />
+          <Parameter Name="id_cuenta" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_DeleteMoneda">
-            <Parameter Name="id_moneda" Mode="In" Type="Int32" />
+          <Parameter Name="id_moneda" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_DeleteTipoCliente">
-            <Parameter Name="id_tipoCliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_tipoCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_DeleteTipoCuenta">
-            <Parameter Name="id_tipoCuenta" Mode="In" Type="Int32" />
+          <Parameter Name="id_tipoCuenta" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_Deposito">
             <Parameter Name="id_TipoMovimiento" Mode="In" Type="Int32" />
@@ -833,20 +832,14 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
             <Parameter Name="monto" Mode="In" Type="Double" />
             <Parameter Name="fechaDelMovimiento" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="sp_RetornaCliente" ReturnType="Collection(proyecto06Model.sp_RetornaCliente_Result)">
-            <Parameter Name="primerApellido" Mode="In" Type="String" />
-            <Parameter Name="segundoApellido" Mode="In" Type="String" />
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="correo" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="sp_RetornaClienteID" ReturnType="Collection(proyecto06Model.sp_RetornaClienteID_Result)">
-            <Parameter Name="id_cliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_cliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaCuentaID" ReturnType="Collection(proyecto06Model.sp_RetornaCuentaID_Result)">
-            <Parameter Name="id_cuenta" Mode="In" Type="Int32" />
+          <Parameter Name="id_cuenta" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaCuentas" ReturnType="Collection(proyecto06Model.sp_RetornaCuentas_Result)">
-            <Parameter Name="numeroCuenta" Mode="In" Type="Int32" />
+          <Parameter Name="numeroCuenta" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaMoneda" ReturnType="Collection(proyecto06Model.sp_RetornaMoneda_Result)">
             <Parameter Name="nombre" Mode="In" Type="String" />
@@ -854,21 +847,17 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
             <Parameter Name="tipoCambio" Mode="In" Type="Double" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaMonedaID" ReturnType="Collection(proyecto06Model.sp_RetornaMonedaID_Result)">
-            <Parameter Name="id_moneda" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaTipoCliente" ReturnType="Collection(proyecto06Model.sp_RetornaTipoCliente_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="descripcion" Mode="In" Type="String" />
+          <Parameter Name="id_moneda" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaTipoClienteID" ReturnType="Collection(proyecto06Model.sp_RetornaTipoClienteID_Result)">
-            <Parameter Name="id_tipoCliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_tipoCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaTipoCuenta" ReturnType="Collection(proyecto06Model.sp_RetornaTipoCuenta_Result)">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="codigo" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaTipoCuentaID" ReturnType="Collection(proyecto06Model.sp_RetornaTipoCuentaID_Result)">
-            <Parameter Name="id_tipoCuenta" Mode="In" Type="Int32" />
+          <Parameter Name="id_tipoCuenta" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_Transferencias">
             <Parameter Name="monto" Mode="In" Type="Double" />
@@ -917,10 +906,20 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="sp_ValidarSaldo" ReturnType="Collection(proyecto06Model.sp_ValidarSaldo_Result)">
-            <Parameter Name="id_cuenta" Mode="In" Type="Int32" />
+          <Parameter Name="id_cuenta" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_VerMovimiento" ReturnType="Collection(proyecto06Model.sp_VerMovimiento_Result)">
-            <Parameter Name="numeroCuenta" Mode="In" Type="Int32" />
+          <Parameter Name="numeroCuenta" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaCliente" ReturnType="Collection(proyecto06Model.sp_RetornaCliente_Result)">
+            <Parameter Name="primerApellido" Mode="In" Type="String" />
+            <Parameter Name="segundoApellido" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaTipoCliente" ReturnType="Collection(proyecto06Model.sp_RetornaTipoCliente_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_AutenticacionUsuario_Result">
@@ -954,20 +953,6 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="sp_RetornaCliente_Result">
-          <Property Type="Int32" Name="id_tipoCliente" Nullable="false" />
-          <Property Type="Int32" Name="cedula" Nullable="false" />
-          <Property Type="String" Name="genero" Nullable="false" MaxLength="10" />
-          <Property Type="DateTime" Name="fechaNacimiento" Nullable="false" />
-          <Property Type="String" Name="primerApellido" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="segundoApellido" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="direccionFisica" Nullable="false" MaxLength="150" />
-          <Property Type="String" Name="telefonoPrincipal" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="telefonoSecundario" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="correo" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="nombreTipoCliente" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="sp_RetornaClienteID_Result">
           <Property Type="Int32" Name="id_cliente" Nullable="false" />
@@ -1016,11 +1001,6 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
           <Property Type="String" Name="codigo" Nullable="false" MaxLength="50" />
           <Property Type="Double" Name="tipoCambio" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="sp_RetornaTipoCliente_Result">
-          <Property Type="Int32" Name="id_tipoCliente" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="100" />
-        </ComplexType>
         <ComplexType Name="sp_RetornaTipoClienteID_Result">
           <Property Type="Int32" Name="id_tipoCliente" Nullable="false" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
@@ -1048,6 +1028,26 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
           <Property Type="Double" Name="monto" Nullable="false" />
           <Property Type="DateTime" Name="fechaDelMovimiento" Nullable="false" Precision="23" />
           <Property Type="String" Name="monto_cod" Nullable="false" MaxLength="74" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaCliente_Result">
+          <Property Type="Int32" Name="id_cliente" Nullable="false" />
+          <Property Type="Int32" Name="id_tipoCliente" Nullable="false" />
+          <Property Type="Int32" Name="cedula" Nullable="false" />
+          <Property Type="String" Name="genero" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="fechaNacimiento" Nullable="false" />
+          <Property Type="String" Name="primerApellido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="segundoApellido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="direccionFisica" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="telefonoPrincipal" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="telefonoSecundario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombreTipoCliente" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaTipoCliente_Result">
+          <Property Type="Int32" Name="id_tipoCliente" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1247,24 +1247,6 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
           <FunctionImportMapping FunctionImportName="sp_InsertTipoCuenta" FunctionName="proyecto06Model.Store.sp_InsertTipoCuenta" />
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="proyecto06Model.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_Retiro" FunctionName="proyecto06Model.Store.sp_Retiro" />
-          <FunctionImportMapping FunctionImportName="sp_RetornaCliente" FunctionName="proyecto06Model.Store.sp_RetornaCliente">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="proyecto06Model.sp_RetornaCliente_Result">
-                <ScalarProperty Name="id_tipoCliente" ColumnName="id_tipoCliente" />
-                <ScalarProperty Name="cedula" ColumnName="cedula" />
-                <ScalarProperty Name="genero" ColumnName="genero" />
-                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
-                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
-                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="direccionFisica" ColumnName="direccionFisica" />
-                <ScalarProperty Name="telefonoPrincipal" ColumnName="telefonoPrincipal" />
-                <ScalarProperty Name="telefonoSecundario" ColumnName="telefonoSecundario" />
-                <ScalarProperty Name="correo" ColumnName="correo" />
-                <ScalarProperty Name="nombreTipoCliente" ColumnName="nombreTipoCliente" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_RetornaClienteID" FunctionName="proyecto06Model.Store.sp_RetornaClienteID">
             <ResultMapping>
               <ComplexTypeMapping TypeName="proyecto06Model.sp_RetornaClienteID_Result">
@@ -1332,15 +1314,6 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_RetornaTipoCliente" FunctionName="proyecto06Model.Store.sp_RetornaTipoCliente">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="proyecto06Model.sp_RetornaTipoCliente_Result">
-                <ScalarProperty Name="id_tipoCliente" ColumnName="id_tipoCliente" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_RetornaTipoClienteID" FunctionName="proyecto06Model.Store.sp_RetornaTipoClienteID">
             <ResultMapping>
               <ComplexTypeMapping TypeName="proyecto06Model.sp_RetornaTipoClienteID_Result">
@@ -1393,6 +1366,34 @@ FROM [dbo].[VW_Ejemplo] AS [VW_Ejemplo]</DefiningQuery>
                 <ScalarProperty Name="monto" ColumnName="monto" />
                 <ScalarProperty Name="fechaDelMovimiento" ColumnName="fechaDelMovimiento" />
                 <ScalarProperty Name="monto_cod" ColumnName="monto_cod" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaCliente" FunctionName="proyecto06Model.Store.sp_RetornaCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="proyecto06Model.sp_RetornaCliente_Result">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_tipoCliente" ColumnName="id_tipoCliente" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
+                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccionFisica" ColumnName="direccionFisica" />
+                <ScalarProperty Name="telefonoPrincipal" ColumnName="telefonoPrincipal" />
+                <ScalarProperty Name="telefonoSecundario" ColumnName="telefonoSecundario" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nombreTipoCliente" ColumnName="nombreTipoCliente" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaTipoCliente" FunctionName="proyecto06Model.Store.sp_RetornaTipoCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="proyecto06Model.sp_RetornaTipoCliente_Result">
+                <ScalarProperty Name="id_tipoCliente" ColumnName="id_tipoCliente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
