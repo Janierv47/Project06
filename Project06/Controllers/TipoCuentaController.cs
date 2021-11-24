@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Project06.Filtros;
 using Project06.Models;
 
 namespace Project06.Controllers
@@ -11,21 +12,22 @@ namespace Project06.Controllers
     {
         proyecto06Entities modeloBD = new proyecto06Entities();
         // GET: RegistroTipoCuenta
-        public ActionResult Index()
+        [ValidarSesionFilter]
+        public ActionResult TipoCuenta()
         {
             return View();
         }
 
-
+        [ValidarSesionFilter]
         public ActionResult TipoCuentaLista()
         {
             List<sp_RetornaTipoCuenta_Result> modeloVista = new List<sp_RetornaTipoCuenta_Result>();
-            modeloVista = this.modeloBD.sp_RetornaTipoCuenta("", "").ToList();
+            modeloVista = this.modeloBD.sp_RetornaTipoCuenta().ToList();
             return View(modeloVista);
         }
 
 
-
+        [ValidarSesionFilter]
         public ActionResult nuevoTipoCuenta()
         {
 
@@ -35,6 +37,7 @@ namespace Project06.Controllers
 
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult nuevoTipoCuenta(sp_RetornaTipoCuenta_Result modeloVista)
         {
             int cantRegistrosAfectados = 0;
@@ -86,6 +89,7 @@ namespace Project06.Controllers
 
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult TipoCuentaModifica(sp_RetornaTipoCuentaID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
@@ -134,6 +138,7 @@ namespace Project06.Controllers
         }
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult TipoCuentaElimina(sp_RetornaTipoCuentaID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
@@ -167,12 +172,6 @@ namespace Project06.Controllers
             return View(modeloVista);
 
         }
-
-
-
-
-
-
 
     }
 }

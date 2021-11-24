@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Project06.Filtros;
 using Project06.Models;
 
 namespace Project06.Controllers
@@ -19,17 +20,17 @@ namespace Project06.Controllers
 
 
         // GET: Monedas
-       
 
+        [ValidarSesionFilter]
         public ActionResult ClientesLista()
         {
             List<sp_RetornaCliente_Result> modeloVista = new List<sp_RetornaCliente_Result>();
-            modeloVista = this.modeloBD.sp_RetornaCliente("", "", "", "").ToList();
+            modeloVista = this.modeloBD.sp_RetornaCliente().ToList();
             return View(modeloVista);
         }
 
 
-
+        [ValidarSesionFilter]
         public ActionResult nuevoCliente()
         {
 
@@ -37,8 +38,9 @@ namespace Project06.Controllers
         }
 
 
-
+        
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult nuevoCliente(sp_RetornaCliente_Result modeloVista)
         {
             int cantRegistrosAfectados = 0;
@@ -83,6 +85,7 @@ namespace Project06.Controllers
 
         }
 
+        [ValidarSesionFilter]
         public ActionResult ClienteModifica(int id_cliente)
         {
             sp_RetornaClienteID_Result modeloVista = new sp_RetornaClienteID_Result();
@@ -90,7 +93,9 @@ namespace Project06.Controllers
             return View(modeloVista);
         }
 
+        
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult ClienteModifica(sp_RetornaClienteID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados

@@ -1,0 +1,52 @@
+﻿
+
+@{
+    ViewBag.Title = "nuevoDeposito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Agregar Deposito</h2>
+
+<form id="frmInversionistaInserta" method="post">
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Moneda</label>
+        <div class="col-md-10">
+            <select id="id_moneda" name="id_moneda" class="form-control">
+                <option value="">Seleccione la Moneda</option>
+                @{
+                    foreach (Project06.Models.sp_RetornaMoneda_Result Moneda in this.ViewBag.ListaMoneda)
+                    {
+                        <option value="@Moneda.id_moneda">@Moneda.nombre</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Cuenta</label>
+        <div class="col-md-10">
+            <select id="id_cuenta" name="id_cuenta" class="form-control">
+                <option value="">Seleccione la Cuenta</option>
+                @{
+                    foreach (Project06.Models.sp_CuentasUsuario_Result Cuenta in this.ViewBag.ListaCuenta)
+                    {
+                        <option value="@Cuenta.id_cuenta">@Cuenta.numeroCuenta</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label>Monto:</label>
+        <input type="number" name="monto" id="monto" class="form-control" />
+    </div>
+
+
+</form>

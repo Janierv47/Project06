@@ -1,41 +1,118 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Project06.Models.AccesoModel sesion = null;
+    if (Session["Usuario"] != null)
+    {
+        sesion = (Project06.Models.AccesoModel)Session["Usuario"];
+
+    }
+}
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <link href="~/Resources/LogoBanco.png" rel="shortcut icon" type="image/x-icon" />
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-color: #F5F5F6;
+            background-repeat: no-repeat;
+            background: url(../../Resources/fondo-verde.jpg) center center fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <nav class="navbar navbar-inverse navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <img src="~/Resources/Icono.png" style="padding-bottom: 15px; height: 50px; width: 55px;" class="d-inline-block align-top">&nbsp;<br />
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                </ul>
+            <ul class="nav navbar-nav">
+
+                @if (sesion != null)
+                {
+                    if (@sesion.id_tipoUsuario == 1)
+                    {
+                        <li>@Html.ActionLink("Inicio", "ColaboradorInicio", "InicioSesion", new { @class = "bi bi-calendar3" })</li>
+                        <li>@Html.ActionLink("  Clientes", "ClientesLista", "Clientes")</li>
+                        <li>@Html.ActionLink("  Cuentas", "CuentasLista", "Cuentas")</li>
+                        <li>@Html.ActionLink("  Monedas", "MonedasLista", "Monedas")</li>
+                        <li>@Html.ActionLink("  Tipo de Cliente", "TipoClienteLista", "TipoCliente")</li>
+                        <li>@Html.ActionLink("  Tipo de Cuenta", "TipoCuentaLista", "TipoCuenta")</li>
+                    }
+                }
+            </ul>
+
+
+            <ul class="nav navbar-nav">
+
+                @if (sesion != null)
+                {
+                    if (@sesion.id_tipoUsuario == 2)
+                    {
+                        <li>@Html.ActionLink("Inicio", "ClienteInicio", "InicioCliente", new { @class = "bi bi-calendar3" })</li>
+                        <li>@Html.ActionLink("  Déposito", "nuevoDeposito", "Deposito")</li>
+                        <li>@Html.ActionLink("  Retiro", "nuevoRetiro", "Retiro")</li>
+                        <li>@Html.ActionLink("  Transferencia", "nuevoTransferencia", "Transferencia")</li>
+
+                    }
+                }
+            </ul>
+
+
+            <ul class="na navbar-nav navbar-right dropdown">
+                <li class="dropdown btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" background-color: #222222; color: white; padding-top: 10px">
+                    @if (sesion != null)
+                    {
+                        <img src="~/Resources/BancoP.gif" width="40" height="40" />
+                        <strong>@sesion.NombreCompleto</strong>
+                    }
+                </li>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #222222; color:gray">
+                    <ul class="nav navbar-nav">
+                        <li type="submit" id="btnSubmit" style="margin-bottom: 2px;" class="btn btn-link active" data-toggle="modal" data-target="#Modal"> <i class="glyphicon glyphicon-log-in"></i>&nbsp; Cerrar sesión</li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="modal" id="Modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center" style="background-color: black;">
+                    <p style="color: white"><strong>¿Desea cerrar la sesión?</strong> </p>
+                    @if (sesion != null)
+                    {
+                        @Html.ActionLink(" Sí", "../InicioSesion/Salir", null, new { @class = "btn btn-primary text-right" })
+                    }
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+
+                </div>
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Banco del Pueblo</p>
         </footer>
     </div>
-
+    @*<script>
+            {
+                if (history.forward(1))
+                    location.replace(history.forward(1))
+            }
+        </script>*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

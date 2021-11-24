@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Project06.Filtros;
 using Project06.Models;
 
 namespace Project06.Controllers
@@ -11,12 +12,13 @@ namespace Project06.Controllers
     {
         proyecto06Entities modeloBD = new proyecto06Entities();
         // GET: RegistroTipoCliente
+        [ValidarSesionFilter]
         public ActionResult TipoCliente()
         {
             return View();
         }
 
-
+        [ValidarSesionFilter]
         public ActionResult TipoClienteLista()
         {
             List<sp_RetornaTipoCliente_Result> modeloVista = new List<sp_RetornaTipoCliente_Result>();
@@ -25,7 +27,7 @@ namespace Project06.Controllers
         }
 
 
-      
+        [ValidarSesionFilter]
         public ActionResult nuevoTipoCliente() { 
        
             return View();
@@ -34,6 +36,7 @@ namespace Project06.Controllers
        
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult nuevoTipoCliente(sp_RetornaTipoCliente_Result modeloVista)
         {
             int cantRegistrosAfectados = 0;
@@ -76,6 +79,7 @@ namespace Project06.Controllers
         }
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult TipoClienteModifica(sp_RetornaTipoClienteID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
@@ -124,6 +128,7 @@ namespace Project06.Controllers
         }
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult TipoClienteElimina(sp_RetornaTipoClienteID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
