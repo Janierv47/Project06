@@ -4,43 +4,145 @@
     ViewBag.Title = "CuentasModifica";
 }
 
-<h2>CuentasModifica</h2>
+<h2>Modificar Cuentas</h2>
 
 <form id="frmModificaCuentas" method="post">
+
+
     <div class="form-group">
         <label>Número de cuenta:</label>
         <input type="text" name="numeroCuenta" id="numeroCuenta" class="form-control" value="@Model.numeroCuenta" />
     </div>
 
     <div class="form-group">
+        <label>Cédula del cliente:</label>
+        <select name="id_Provincia" id="id_Provincia" class="form-control">
+            <option value="">Seleccione la cédula del cliente</option>
+            @{
+                foreach (Project06.Models.sp_RetornaCliente_Result IDCliente
+                    in this.ViewBag.ListaIDClientes)
+                {
+                    bool esIDClienteModelo = IDCliente.id_cliente == Model.id_cliente;
+                    @*
+                         Incluir la propiedad selected para que la opción aparezca
+                        seleccionada. Se compara la propiedad id_cliente
+                        del objeto del viewBag contra la propiedad id_cliente
+                        del modelo de la vista
+                    *@
+
+                    if (esIDClienteModelo)
+                    {
+                        <option value="@IDCliente.id_cliente" selected>@IDCliente.cedula.ToString() </option>
+                    }
+                    else
+                    {
+                        <option value="@IDCliente.id_cliente">@IDCliente.cedula.ToString() </option>
+                    }
+                }
+
+            }
+        </select>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label>Tipo de cuenta:</label>
+        <select name="id_Provincia" id="id_Provincia" class="form-control">
+            <option value="">Seleccione el tipo de cuenta</option>
+            @{
+                foreach (Project06.Models.sp_RetornaTipoCuenta_Result TipoCuenta
+                    in this.ViewBag.ListaTipoCuenta)
+                {
+                    bool esTipoCuentaModelo = TipoCuenta.id_tipoCuenta == Model.id_tipoCuenta;
+                    @*
+                 Incluir la propiedad selected para que la opción aparezca
+                seleccionada. Se compara la propiedad id_tipoCuenta
+                del objeto del viewBag contra la propiedad id_tipoCuenta
+                del modelo de la vista
+                    *@
+
+                    if (esTipoCuentaModelo)
+                    {
+                        <option value="@TipoCuenta.id_tipoCuenta" selected>@TipoCuenta.nombre.ToUpper() </option>
+                    }
+                    else
+                    {
+                        <option value="@TipoCuenta.id_tipoCuenta">@TipoCuenta.nombre.ToUpper() </option>
+                    }
+                }
+
+            }
+        </select>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label>Moneda:</label>
+        <select name="id_Provincia" id="id_Provincia" class="form-control">
+            <option value="">Seleccione la moneda</option>
+            @{
+                foreach (Project06.Models.sp_RetornaMoneda_Result Moneda
+                    in this.ViewBag.ListaMoneda)
+                {
+                    bool esMonedaModelo = Moneda.id_moneda == Model.id_moneda;
+                    @*
+                         Incluir la propiedad selected para que la opción aparezca
+                        seleccionada. Se compara la propiedad id_moneda
+                        del objeto del viewBag contra la propiedad id_moneda
+                        del modelo de la vista
+                    *@
+
+                    if (esMonedaModelo)
+                    {
+                        <option value="@Moneda.id_moneda" selected>@Moneda.nombre.ToUpper() </option>
+                    }
+                    else
+                    {
+                        <option value="@Moneda.id_moneda">@Moneda.nombre.ToUpper() </option>
+                    }
+                }
+
+            }
+        </select>
+    </div>
+
+
+
+
+    <div class="form-group">
         <label>ID del cliente:</label>
-        <input type="text" name="id_cliente" id="id_cliente" class="form-control" value="@Model.id_cliente"/>
+        <input type="text" name="id_cliente" id="id_cliente" class="form-control" value="@Model.id_cliente" />
     </div>
 
     <div class="form-group">
         <label>ID del tipo de cuenta:</label>
-        <input type="text" name="id_tipoCuenta" id="id_tipoCuenta" class="form-control" value="@Model.id_tipoCuenta"/>
+        <input type="text" name="id_tipoCuenta" id="id_tipoCuenta" class="form-control" value="@Model.id_tipoCuenta" />
     </div>
 
     <div class="form-group">
         <label>ID de la moneda:</label>
-        <input type="text" name="id_moneda" id="id_moneda" class="form-control" value="@Model.id_moneda"/>
+        <input type="text" name="id_moneda" id="id_moneda" class="form-control" value="@Model.id_moneda" />
     </div>
 
     <div class="form-group">
         <label>Saldo:</label>
-        <input type="text" name="saldo" id="saldo" class="form-control" value="@Model.saldo"/>
+        <input type="text" name="saldo" id="saldo" class="form-control" value="@Model.saldo" />
     </div>
 
     <div class="form-group">
         <label>Estado:</label>
-        <input type="text" name="estado" id="estado" class="form-control" value="@Model.estado"/>
+        <input type="text" name="estado" id="estado" class="form-control" value="@Model.estado" />
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Guardar" id="btnAceptar" />
+        <input class="btn btn-primary" type="submit" value="Guardar" id="btnAceptar" />
+        <a class="btn btn-warning" href="~/Cuentas/CuentasLista">Regresar a la lista</a>
     </div>
-    <a href="~/Cuentas/CuentasLista">Regresar a la lista</a>
+
 
 
 </form>

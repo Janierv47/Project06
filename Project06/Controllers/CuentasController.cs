@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Project06.Filtros;
 using Project06.Models;
 
 namespace Project06.Controllers
@@ -12,26 +13,36 @@ namespace Project06.Controllers
         proyecto06Entities modeloBD = new proyecto06Entities();
 
         // GET: Cuentas
+        [ValidarSesionFilter]
         public ActionResult Cuentas()
         {
             return View();
         }
 
+        [ValidarSesionFilter]
         public ActionResult CuentasLista()
         {
             List<sp_RetornaCuentas_Result> modeloVista = new List<sp_RetornaCuentas_Result>();
-            modeloVista = this.modeloBD.sp_RetornaCuentas(null).ToList();
+            modeloVista = this.modeloBD.sp_RetornaCuentas().ToList();
             return View(modeloVista);
         }
 
-
+        [ValidarSesionFilter]
         public ActionResult nuevoCuentas()
         {
+       
+            ViewBag.ListaMoneda = this.modeloBD.sp_RetornaMoneda().ToList();
+
+            ViewBag.ListaTipoCuenta = this.modeloBD.sp_RetornaTipoCuenta().ToList();
+
+            ViewBag.ListaIDClientes = this.modeloBD.sp_RetornaCliente().ToList();
 
             return View();
         }
 
+
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult nuevoCuentas(sp_RetornaCuentas_Result modeloVista)
         {
             int cantRegistrosAfectados = 0;
@@ -72,12 +83,19 @@ namespace Project06.Controllers
 
         public ActionResult CuentasModifica(int id_cuenta)
         {
+            ViewBag.ListaMoneda = this.modeloBD.sp_RetornaMoneda().ToList();
+
+            ViewBag.ListaTipoCuenta = this.modeloBD.sp_RetornaTipoCuenta().ToList();
+
+            ViewBag.ListaIDClientes = this.modeloBD.sp_RetornaCliente().ToList();
+
             sp_RetornaCuentaID_Result modeloVista = new sp_RetornaCuentaID_Result();
             modeloVista = this.modeloBD.sp_RetornaCuentaID(id_cuenta).FirstOrDefault();
             return View(modeloVista);
         }
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult CuentasModifica(sp_RetornaCuentaID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
@@ -119,8 +137,16 @@ namespace Project06.Controllers
 
         public ActionResult CuentasElimina(int id_cuenta)
         {
-            ///obtener el registro que se desea modificar
-            ///utilizando el parámetro del método id_TipoCiente
+            ViewBag.ListaMoneda = this.modeloBD.sp_RetornaMoneda().ToList();
+
+            ViewBag.ListaTipoCuenta = this.modeloBD.sp_RetornaTipoCuenta().ToList();
+
+            ViewBag.ListaIDClientes = this.modeloBD.sp_RetornaCliente().ToList();
+
+            ViewBag.ListaCuentas = this.modeloBD.sp_RetornaCuentas().ToList();
+
+            ///obtener el registro que se desea eliminar
+            ///utilizando el parámetro del método id_cuenta
             sp_RetornaCuentaID_Result modeloVista = new sp_RetornaCuentaID_Result();
             modeloVista = this.modeloBD.sp_RetornaCuentaID(id_cuenta).FirstOrDefault();
 
@@ -130,6 +156,7 @@ namespace Project06.Controllers
         }
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult CuentasElimina(sp_RetornaCuentaID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados

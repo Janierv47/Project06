@@ -129,146 +129,136 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CuentasController.cs" />
+    <Compile Include="Controllers\DepositoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InicioClienteController.cs" />
+    <Compile Include="Controllers\InicioColaboradorController.cs" />
+    <Compile Include="Controllers\InicioSesionController.cs" />
     <Compile Include="Controllers\MonedasController.cs" />
     <Compile Include="Controllers\TipoClienteController.cs" />
     <Compile Include="Controllers\TipoCuentaController.cs" />
+    <Compile Include="Filtros\ValidarSesion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccesoModel.cs" />
     <Compile Include="Models\sp_AutenticacionUsuario_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_ConsultarTiposMovimientos_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_CuentasDestino_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_CuentasUsuario_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaClienteID_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaCliente_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaCuentaID_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaCuentas_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaMonedaID_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaMoneda_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaTipoClienteID_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaTipoCliente_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaTipoCuentaID_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaTipoCuenta_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_ValidarSaldo_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_VerMovimiento_Result.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SucursalBDModel.Context.cs">
+    <Compile Include="Models\SucursalBD.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SucursalBDModel.Context.tt</DependentUpon>
+      <DependentUpon>SucursalBD.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SucursalBDModel.cs">
+    <Compile Include="Models\SucursalBD.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SucursalBDModel.Designer.cs">
+    <Compile Include="Models\SucursalBD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SucursalBDModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblCliente.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblCuenta.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblinicioSesion.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblMoneda.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblMovimiento.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblTipoCliente.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblTipoCuenta.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblTipoMovimiento.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblTipoUsuario.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
+      <DependentUpon>SucursalBD.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoClienteModel.cs" />
     <Compile Include="Models\TipoCuentaModel.cs" />
-    <Compile Include="Models\VW_Ejemplo.cs">
-      <DependentUpon>SucursalBDModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CSS\EstilosLogin.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\SucursalBDModel.Context.tt">
+    <Content Include="Models\SucursalBD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SucursalBDModel.edmx</DependentUpon>
-      <LastGenOutput>SucursalBDModel.Context.cs</LastGenOutput>
+      <DependentUpon>SucursalBD.edmx</DependentUpon>
+      <LastGenOutput>SucursalBD.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SucursalBDModel.tt">
+    <Content Include="Models\SucursalBD.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SucursalBDModel.edmx</DependentUpon>
-      <LastGenOutput>SucursalBDModel.cs</LastGenOutput>
+      <DependentUpon>SucursalBD.edmx</DependentUpon>
+      <LastGenOutput>SucursalBD.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\SimboloBanco.png" />
+    <None Include="Resources\LogoBanco.png" />
+    <None Include="Resources\BancoPueblo.png" />
+    <None Include="Resources\fondo-verde.jpg" />
+    <None Include="Resources\Usuario.png" />
+    <None Include="Resources\Icono.png" />
+    <None Include="Resources\Banco.gif" />
+    <None Include="Resources\BancoP.gif" />
+    <None Include="Resources\Opciones.png" />
+    <None Include="Resources\BancodelPueblo.png" />
+    <None Include="Resources\Ahorro.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\SucursalBDModel.edmx">
+    <EntityDeploy Include="Models\SucursalBD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SucursalBDModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>SucursalBD.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SucursalBDModel.edmx.diagram">
-      <DependentUpon>SucursalBDModel.edmx</DependentUpon>
+    <Content Include="Models\SucursalBD.edmx.diagram">
+      <DependentUpon>SucursalBD.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -320,6 +310,11 @@
     <Content Include="Views\Clientes\ClientesLista.cshtml" />
     <Content Include="Views\Clientes\ClienteModifica.cshtml" />
     <Content Include="Views\Clientes\nuevoCliente.cshtml" />
+    <Content Include="Views\Deposito\nuevoDeposito.cshtml" />
+    <Content Include="Views\InicioSesion\Autenticacion.cshtml" />
+    <Content Include="Views\InicioColaborador\Colaborador.cshtml" />
+    <Content Include="Views\InicioCliente\ClienteInicio.cshtml" />
+    <Content Include="Views\InicioSesion\_Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -341,6 +336,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,49 @@
+﻿@model Project06.Models.AccesoModel
+@{
+    ViewBag.Title = "InicioSesion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Esta vista contiene el formulario para el login-->
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/EstilosLogin.css">
+    <link href="~/Resources/LogoBanco.png" rel="shortcut icon" type="image/x-icon" />
+    <title>Banco del Pueblo</title>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Imagenes del formulario-->
+            <div class="fadeIn first" style="margin: 25px">
+                <img src="~/Resources/Banco.gif" id="icon" alt="User Icon"/>
+            </div>
+
+            <!-- Login Formulario -->
+            @using (Html.BeginForm("Acceso", "InicioSesion", FormMethod.Post))
+            {
+
+
+                <div style="margin:10px;">
+                    <strong> @Html.LabelFor(d => d.usuario)</strong> <br />
+                    @Html.TextBoxFor(d => d.usuario, new { @class = "form-control" })<br />
+                </div>
+                <br />
+                <div style="margin:10px;">
+                    <strong> @Html.LabelFor(d => d.clave, new { @class = "Text-left" })</strong> <br />
+                    @Html.TextBoxFor(d => d.clave, new { @class = "form-control" })<br />
+                </div>
+                <br />
+                <div>
+                    <input type="submit" value="Ingresar" />
+                </div>
+            }
+
+        </div>
+    </div>
+
+</body>
+</html>

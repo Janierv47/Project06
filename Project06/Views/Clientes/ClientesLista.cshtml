@@ -7,57 +7,59 @@
 
 <h2>Lista de Clientes</h2>
 
-<a href="~/Clientes/nuevoCliente">Agregar nueva moneda</a>
+<a class="btn btn-info" href="~/Clientes/nuevoCliente">Agregar nuevo cliente</a>
+<br />
+<br />
 
-<table class="table">
-    <tr>
-        <th>Cédula:</th>
-        <th>Género:</th>
-        <th>Fecha de nacimiento</th>
-        <th>Nombre</th>
-        <th>Primer Apellido</th>
-        <th>Segundo Apellido</th>
-        <th>Dirección física</th>
-        <th>Teléfono principal</th>
-        <th>Teléfono secundario</th>
-        <th>Correo</th>
-        <th>ID del tipo de cliente</th>
-
-
-    </tr>
-    @{
-        foreach (Project06.Models.sp_RetornaCliente_Result posicionModelo in this.Model)
-        {
-
-            <tr>
-
-                <td>@posicionModelo.cedula</td>
-                <td>@posicionModelo.genero</td>
-                <td>@posicionModelo.fechaNacimiento</td>
-                <td>@posicionModelo.nombre</td>
-                <td>@posicionModelo.primerApellido</td>
-                <td>@posicionModelo.segundoApellido</td>
-                <td>@posicionModelo.direccionFisica</td>
-                <td>@posicionModelo.telefonoPrincipal</td>
-                <td>@posicionModelo.telefonoSecundario</td>
-                <td>@posicionModelo.correo</td>
-                <td>@posicionModelo.id_tipoCliente</td>
+    <table class="table">
+        <tr>
+            <th>Cédula:</th>
+            <th>Género:</th>
+            <th>Fecha de nacimiento</th>
+            <th>Nombre</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
+            <th>Dirección física</th>
+            <th>Teléfono principal</th>
+            <th>Teléfono secundario</th>
+            <th>Correo</th>
+            <th>ID del tipo de cliente</th>
 
 
-                <td>
+        </tr>
+        @{
+            foreach (Project06.Models.sp_RetornaCliente_Result posicionModelo in this.Model)
+            {
+
+                <tr>
+
+                    <td>@posicionModelo.cedula</td>
+                    <td>@posicionModelo.genero</td>
+                    <td>@posicionModelo.fechaNacimiento</td>
+                    <td>@posicionModelo.nombre</td>
+                    <td>@posicionModelo.primerApellido</td>
+                    <td>@posicionModelo.segundoApellido</td>
+                    <td>@posicionModelo.direccionFisica</td>
+                    <td>@posicionModelo.telefonoPrincipal</td>
+                    <td>@posicionModelo.telefonoSecundario</td>
+                    <td>@posicionModelo.correo</td>
+                    <td>@posicionModelo.id_tipoCliente</td>
 
 
-                    <a href="~/Clientes/ClienteModifica?id_cliente=@posicionModelo.id_cliente">Modificar</a>
-                    <br />
-                    <a href="~/Clientes/ClienteElimina?id_cliente=@posicionModelo.id_cliente">Eliminar</a>
+                    <td>
 
-                </td>
-            </tr>
+
+                        <a class="btn btn-primary" href="~/Clientes/ClienteModifica?id_cliente=@posicionModelo.id_cliente">Modificar</a>
+                        <br />
+                        <a class="btn btn-danger" href="~/Clientes/ClienteElimina?id_cliente=@posicionModelo.id_cliente">Eliminar</a>
+
+                    </td>
+                </tr>
+
+            }
+
 
         }
 
 
-    }
-
-
-</table>
+    </table>

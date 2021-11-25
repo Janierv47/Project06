@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Project06.Filtros;
 using Project06.Models;
 
 namespace Project06.Controllers
@@ -12,20 +13,22 @@ namespace Project06.Controllers
         proyecto06Entities modeloBD = new proyecto06Entities();
 
         // GET: Monedas
+        [ValidarSesionFilter]
         public ActionResult Monedas()
         {
             return View();
         }
 
+        [ValidarSesionFilter]
         public ActionResult MonedasLista()
         {
             List<sp_RetornaMoneda_Result> modeloVista = new List<sp_RetornaMoneda_Result>();
-            modeloVista = this.modeloBD.sp_RetornaMoneda("", "", null).ToList();
+            modeloVista = this.modeloBD.sp_RetornaMoneda().ToList();
             return View(modeloVista);
         }
 
 
-
+        [ValidarSesionFilter]
         public ActionResult nuevoMoneda()
         {
 
@@ -35,6 +38,7 @@ namespace Project06.Controllers
 
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult nuevoMoneda(sp_RetornaMoneda_Result modeloVista)
         {
             int cantRegistrosAfectados = 0;
@@ -78,6 +82,7 @@ namespace Project06.Controllers
         }
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult MonedasModifica(sp_RetornaMonedaID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
@@ -127,6 +132,7 @@ namespace Project06.Controllers
         }
 
         [HttpPost]
+        [ValidarSesionFilter]
         public ActionResult MonedasElimina(sp_RetornaMonedaID_Result modeloVista)
         {
             ///Variable que registra la cantidad de registros afectados
