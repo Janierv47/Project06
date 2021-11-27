@@ -29,60 +29,73 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed">
-        <div class="container-fluid">
-            <div class="navbar-brand">
-                <img src="~/Resources/Icono.png" style="padding-bottom: 15px; height: 50px; width: 55px;" class="d-inline-block align-top">&nbsp;<br />
-            </div>
-            <ul class="nav navbar-nav">
 
-                @if (sesion != null)
-                {
-                    if (@sesion.id_tipoUsuario == 1)
-                    {
-                        <li>@Html.ActionLink("Inicio", "ColaboradorInicio", "InicioSesion", new { @class = "bi bi-calendar3" })</li>
-                        <li>@Html.ActionLink("  Clientes", "ClientesLista", "Clientes")</li>
-                        <li>@Html.ActionLink("  Cuentas", "CuentasLista", "Cuentas")</li>
-                        <li>@Html.ActionLink("  Monedas", "MonedasLista", "Monedas")</li>
-                        <li>@Html.ActionLink("  Tipo de Cliente", "TipoClienteLista", "TipoCliente")</li>
-                        <li>@Html.ActionLink("  Tipo de Cuenta", "TipoCuentaLista", "TipoCuenta")</li>
-                    }
-                }
-            </ul>
+    @if (sesion != null)
+    {
 
+        <nav class="navbar navbar-inverse navbar-fixed" style="z-index:200">
+            <div class="container-fluid">
+                <div class="navbar-brand">
+                    <img src="~/Resources/Icono.png" style="padding-bottom: 15px; height: 50px; width: 55px;" class="d-inline-block align-top">&nbsp;<br />
+                </div>
+                <ul class="nav navbar-nav">
 
-            <ul class="nav navbar-nav">
-
-                @if (sesion != null)
-                {
-                    if (@sesion.id_tipoUsuario == 2)
-                    {
-                        <li>@Html.ActionLink("Inicio", "ClienteInicio", "InicioCliente", new { @class = "bi bi-calendar3" })</li>
-                        <li>@Html.ActionLink("  Déposito", "../Deposito/nuevoDeposito")</li>
-                        <li>@Html.ActionLink("  Retiro", "nuevoRetiro", "Retiro")</li>
-                        <li>@Html.ActionLink("  Transferencia", "nuevoTransferencia", "Transferencia")</li>
-
-                    }
-                }
-            </ul>
-
-
-            <ul class="na navbar-nav navbar-right dropdown">
-                <li class="dropdown btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" background-color: #222222; color: white; padding-top: 10px">
                     @if (sesion != null)
                     {
-                        <img src="~/Resources/BancoP.gif" width="40" height="40" />
-                        <strong>@sesion.NombreCompleto</strong>
+
+                        if (@sesion.id_tipoUsuario == 1)
+                        {
+                            <li>@Html.ActionLink("Inicio", "ColaboradorInicio", "InicioSesion", new { @class = "bi bi-calendar3" })</li>
+                            <li>@Html.ActionLink("  Clientes", "ClientesLista", "Clientes")</li>
+                            <li>@Html.ActionLink("  Cuentas", "CuentasLista", "Cuentas")</li>
+                            <li>@Html.ActionLink("  Monedas", "MonedasLista", "Monedas")</li>
+                            <li>@Html.ActionLink("  Tipo de Cliente", "TipoClienteLista", "TipoCliente")</li>
+                            <li>@Html.ActionLink("  Tipo de Cuenta", "TipoCuentaLista", "TipoCuenta")</li>
+                        }
+
                     }
-                </li>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #222222; color:gray">
-                    <ul class="nav navbar-nav">
-                        <li type="submit" id="btnSubmit" style="margin-bottom: 2px;" class="btn btn-link active" data-toggle="modal" data-target="#Modal"> <i class="glyphicon glyphicon-log-in"></i>&nbsp; Cerrar sesión</li>
+
                     </ul>
-                </div>
-            </ul>
-        </div>
-    </nav>
+
+
+                <ul class="nav navbar-nav">
+
+                    @if (sesion != null)
+                    {
+                        if (@sesion.id_tipoUsuario == 2)
+                        {
+                            <li>@Html.ActionLink("Inicio", "../InicioCliente/ClienteInicio", null, new { @class = "bi bi-calendar3" })</li>
+                            <li>@Html.ActionLink("  Déposito", "../Deposito/nuevoDeposito")</li>
+                            <li>@Html.ActionLink("  Retiro", "nuevoRetiro", "Retiro")</li>
+                            <li>@Html.ActionLink("  Transferencia", "nuevoTransferencia", "Transferencia")</li>
+
+                        }
+
+                    }
+
+                </ul>
+
+
+                <ul class="na navbar-nav navbar-right dropdown">
+                    <li class="dropdown btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" background-color: #222222; color: white; padding-top: 10px">
+
+                        @if (sesion != null)
+                        {
+                            <img src="~/Resources/BancoP.gif" width="40" height="40" />
+                            <strong>@sesion.NombreCompleto</strong>
+
+                        }
+
+                        </li>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #222222; color:gray">
+                        <ul class="nav navbar-nav">
+                            <li type="submit" id="btnSubmit" style="margin-bottom: 2px;" class="btn btn-link active" data-toggle="modal" data-target="#Modal"> <i class="glyphicon glyphicon-log-in"></i>&nbsp; Cerrar sesión</li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    }
 
     <div class="modal" id="Modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -104,7 +117,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Banco del Pueblo</p>
+            <p align="center">&copy; @DateTime.Now.Year - Banco del Pueblo</p>
         </footer>
     </div>
     @*<script>
