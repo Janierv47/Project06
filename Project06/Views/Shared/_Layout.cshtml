@@ -16,8 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Resources/LogoBanco.png" rel="shortcut icon" type="image/x-icon" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/CSS")
     @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("css", required: false)
     <style>
         body {
             background-color: #F5F5F6;
@@ -65,9 +66,9 @@
                         if (@sesion.id_tipoUsuario == 2)
                         {
                             <li>@Html.ActionLink("Inicio", "../InicioCliente/ClienteInicio", null, new { @class = "bi bi-calendar3" })</li>
-                            <li>@Html.ActionLink("  Déposito", "../Deposito/nuevoDeposito")</li>
-                            <li>@Html.ActionLink("  Retiro", "nuevoRetiro", "Retiro")</li>
-                            <li>@Html.ActionLink("  Transferencia", "nuevoTransferencia", "Transferencia")</li>
+                            <li>@Html.ActionLink("  Depósito", "../Deposito/nuevoDeposito")</li>
+                            <li>@Html.ActionLink("  Retiro", "../Retiro/nuevoRetiro")</li>
+                            <li>@Html.ActionLink("  Transferencia", "../Transferencia/nuevaTransferencia")</li>
 
                         }
 

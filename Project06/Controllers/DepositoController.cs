@@ -25,7 +25,7 @@ namespace Project06.Controllers
         }
 
         /// <summary>
-        /// Se muestran los datos del formulario del deposito
+        /// Se muestran los datos del formulario del depósito
         /// </summary>
         /// <returns></returns>
 
@@ -85,11 +85,14 @@ namespace Project06.Controllers
             }
             finally
             {
+               var moned= this.modeloBD.sp_RetornaMonedaID(id_moneda).FirstOrDefault();
+
+
                 if (cantRegistrosAfectados > 0)
                 {
-                    resultado = "Depósito realizado correctamente";
+                    resultado = "<p>Su depósito de "+moned.codigo+monto+" fue éxitoso a nombre de <b> " + persona.NombreCompleto + "</b> </p>";
 
-                    Correo.EnviarCorreo(resultado, "Gracias por usar nuestros servicios", "jvalverdea338@castrocarazo.ac.cr");
+                    Correo.EnviarCorreo(resultado, "Gracias por usar nuestros servicios.", "jvalverdea338@castrocarazo.ac.cr");
 
                 }
             
@@ -97,13 +100,14 @@ namespace Project06.Controllers
                 else
                 {
                     ///Las restricciones se realizaron en el procedimiento almacenado sp_Deposito, por lo tanto este es el mensaje de restricción
-                    resultado += "No se pudo realizar el déposito, compruebe que el monto sea válido e intente nuevamente";
+                    resultado += "No se pudo realizar el depósito, compruebe que el monto sea válido e intente nuevamente";
                     
                    
                 }
 
             }
-            Response.Write("<script language=javascript>alert('" + resultado + "')</script>");
+            string jsMensaje = resultado.Replace("<p>", "").Replace("</p>", "").Replace("<b>", "").Replace("</b>","");
+            Response.Write("<script language=javascript>alert('" + jsMensaje + "')</script>");
             AgregaMonedaViewBag();
             return View();
 

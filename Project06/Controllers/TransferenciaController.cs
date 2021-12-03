@@ -36,10 +36,11 @@ namespace Project06.Controllers
 
 
                 ViewBag.ListaCuenta = this.modeloBD.sp_CuentasUsuario(persona.id_Cliente).ToList();
+                ViewBag.ListaCuentaDestino = this.modeloBD.sp_RetornaCuentas().ToList();
             }
 
             AgregaMonedaViewBag();
-            return View("nuevaTransferencia", ViewBag.ListaCuenta);
+            return View("nuevaTransferencia");
         }
 
 
@@ -53,7 +54,7 @@ namespace Project06.Controllers
         /// <returns></returns>
         [ValidarSesionFilter]
         [HttpPost]
-        public ActionResult nuevaTransferencia(double monto, int id_cuentaOrigen, int id_cuentaDestino, int id_moneda)
+        public ActionResult nuevaTransferencia(double monto, int id_cuentaOrigen, int id_cuentaDestino)
         {
             int cantRegistrosAfectados = 0;
             string resultado = "";
@@ -68,20 +69,15 @@ namespace Project06.Controllers
 
 
                 ViewBag.ListaCuenta = this.modeloBD.sp_CuentasUsuario(persona.id_Cliente).ToList();
+                ViewBag.ListaCuentaDestino = this.modeloBD.sp_RetornaCuentas().ToList();
             }
-
-            else 
-            {
-                ViewBag.ListaCuentaDestino = this.modeloBD.sp_CuentasDestino(persona.id_Cliente).ToList();
-            }
-
 
 
             try
             {
 
                 cantRegistrosAfectados =
-             this.modeloBD.sp_Transferencias(monto, id_cuentaOrigen, id_cuentaDestino, fechaTransferencia, id_moneda);
+             this.modeloBD.sp_Transferencias(monto, id_cuentaOrigen, id_cuentaDestino, fechaTransferencia);
             }
             catch (Exception error)
             {
@@ -89,20 +85,23 @@ namespace Project06.Controllers
             }
             finally
             {
-                var moned = this.modeloBD.sp_RetornaMonedaID(id_moneda).FirstOrDefault();
+            
+                var infoCuentaOrg = this.modeloBD.sp_RetornaCuentaID(id_cuentaOrigen).FirstOrDefault();
+                var moned = this.modeloBD.sp_RetornaMonedaID(infoCuentaOrg.id_moneda).FirstOrDefault();
+                var infoCuentaDest = this.modeloBD.sp_RetornaCuentaID(id_cuentaDestino).FirstOrDefault();
 
                 if (cantRegistrosAfectados > 0)
                 {
-                    resultado = "<p>Su transferencia de " + moned.codigo + monto + " fue éxitoso a nombre de <b> " + persona.NombreCompleto + "</b> </p>";
+                    resultado = "La transferencia se realizo exitosamente";
 
-                    Correo.EnviarCorreo(resultado, "Gracias por usar nuestros servicios.", "jvalverdea338@castrocarazo.ac.cr");
-
+                    Correo.EnviarCorreo("Estimado " + infoCuentaOrg.primerApellido + " " + infoCuentaOrg.segundoApellido + " " + infoCuentaOrg.nombre + " usted a realizado una tranferencia de "+ moned.codigo + monto + " de la cuenta "+ infoCuentaOrg.numeroCuenta +" a la cuenta "+ infoCuentaDest.numeroCuenta + " del usuario " + infoCuentaDest.primerApellido + " " + infoCuentaDest.segundoApellido + " " + infoCuentaDest.nombre, "Gracias por usar nuestros servicios.", "ryvqsd@gmail.com");
+                    Correo.EnviarCorreo("Estimado " + infoCuentaDest.primerApellido + " " + infoCuentaDest.segundoApellido + " " + infoCuentaDest.nombre + " usted a recibido una tranferencia de " + moned.codigo + monto + " de la cuenta " + infoCuentaOrg.numeroCuenta + " del usuario " + infoCuentaOrg.primerApellido + " " + infoCuentaOrg.segundoApellido + " " + infoCuentaOrg.nombre + " a la cuenta " + infoCuentaDest.numeroCuenta, "Gracias por usar nuestros servicios.", "ryvqsd@gmail.com");
                 }
 
 
                 else
                 {
-                    ///Las restricciones se realizaron en el procedimiento almacenado sp_Deposito, por lo tanto este es el mensaje de restricción
+                    ///Las restricciones se realizaron en el procedimiento almacenado sp_Transferencias, por lo tanto este es el mensaje de restricción
                     resultado += "No se pudo realizar la transferencia, compruebe que el monto sea válido e intente nuevamente";
 
 

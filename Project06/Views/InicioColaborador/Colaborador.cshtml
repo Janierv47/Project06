@@ -1,7 +1,77 @@
 ﻿
+
+@model Project06.Models.AccesoModel
 @{
-    ViewBag.Title = "Colaborador";
+    ViewBag.Title = "ColaboradorInicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Colaborador</h2>
+@section css{
+    <link href="~/Content/CSS/InicioClienteSprite.css" rel="stylesheet" />
+}
 
+<h2 class="alert-info alert-warning">Bienvenido(a) al mantenimiento del Banco del Pueblo</h2>
+
+
+
+<form id="frmAppBootstrap" runat="server">
+    <div class="jumbotron text-center" id="divEncabezadoPagina">
+        <h1> Banco del Pueblo</h1>
+        <p>Puedes administrar los mantenimientos</p>
+    </div>
+    <div class="container" id="divContenendorContenido" align="center">
+        <div class="row" id="divRowContenido1" align="center">
+            <div class="col-sm-4">
+                <h3>Video</h3>
+                <video width="320" height="240" controls>
+                    <source src="../Videos/Bancos.ogg" type="video/ogg">
+                    <source src="../Videos/Bancos.mp4" type="video/mp4">
+                    El navegador no soporta video.
+                </video>
+
+                <h3>Audio</h3>
+                <audio controls>
+                    <source src="../Audios/Audio2.mpeg" type="audio/mpeg">
+                    El navegador no soporta audio.
+                </audio>
+
+            </div>
+
+
+        </div>
+
+        <br />
+        <br />
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol id="olCarousel" class="carousel-indicators">
+                <li data-target="myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="myCarousel" data-slide-to="1"></li>
+                <li data-target="myCarousel" data-slide-to="2"></li>
+
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <span class="sprite Servicios-múltiples1"></span>
+                </div>
+                <div class="item">
+                    <span class="sprite Servicios-múltiples2"></span>
+                </div>
+                <div class="item">
+                    <span class="sprite Servicios-múltiples3"></span>
+                </div>
+
+
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</form>

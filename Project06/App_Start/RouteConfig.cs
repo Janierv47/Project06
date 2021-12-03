@@ -16,7 +16,7 @@ namespace Project06
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new { controller = "InicioSesion", action = "Index" }
+                defaults: new { controller = "InicioSesion", action = "Autenticacion" }
             );
         }
     }

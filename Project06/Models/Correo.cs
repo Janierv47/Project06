@@ -28,6 +28,7 @@ namespace Project06.Models
                 message.Subject = Asunto;
                 message.To.Add(new MailAddress(Destinatario));
                 message.CC.Add(new MailAddress("pirlocc637@gmail.com")); ;
+                message.IsBodyHtml = true;
 
                 sClient.Send(message);
 

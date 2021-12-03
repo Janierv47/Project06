@@ -55,9 +55,7 @@ namespace Project06.Controllers
                         modeloVista.numeroCuenta,
                         modeloVista.id_cliente,
                         modeloVista.id_tipoCuenta,
-                        modeloVista.id_moneda,
-                        modeloVista.saldo,
-                        modeloVista.estado);
+                        modeloVista.id_moneda);
             }
             catch (Exception error)
             {
@@ -67,7 +65,13 @@ namespace Project06.Controllers
             {
                 if (cantRegistrosAfectados > 0)
                 {
-                    resultado = "Registro Insertado";
+
+                    var moned = this.modeloBD.sp_RetornaMonedaID(modeloVista.id_moneda).FirstOrDefault();
+                    var cliente = this.modeloBD.sp_RetornaClienteID(modeloVista.id_cliente).FirstOrDefault();
+
+                    resultado = "Cuenta creada exitosamente";
+                    Correo.EnviarCorreo("Estimado cliente: "+ cliente.primerApellido +" "+ cliente.segundoApellido + " " + cliente.nombre + ", le informamos que se ha creado la cuenta:" + modeloVista.numeroCuenta +", en la moneda " + moned.nombre +" a su nombre. " +
+                        "<br> Gracias por confiar en el Banco del Pueblo. Para nosotros es un placer servirle", "Su nueva cuenta en el Banco del Pueblo", "jvalverdea338@castrocarazo.ac.cr");
                 }
                 else
                 {
@@ -75,6 +79,13 @@ namespace Project06.Controllers
                 }
 
             }
+
+            ViewBag.ListaMoneda = this.modeloBD.sp_RetornaMoneda().ToList();
+
+            ViewBag.ListaTipoCuenta = this.modeloBD.sp_RetornaTipoCuenta().ToList();
+
+            ViewBag.ListaIDClientes = this.modeloBD.sp_RetornaCliente().ToList();
+
             Response.Write("<script language=javascript>alert('" + resultado + "')</script>");
 
             return View();

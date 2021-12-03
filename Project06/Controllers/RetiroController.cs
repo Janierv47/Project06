@@ -82,9 +82,11 @@ namespace Project06.Controllers
             }
             finally
             {
+                var moned = this.modeloBD.sp_RetornaMonedaID(id_moneda).FirstOrDefault();
+
                 if (cantRegistrosAfectados > 0)
                 {
-                    resultado = "Retiro realizado correctamente";
+                    resultado = "<p>Su retiro de " + moned.codigo + monto + " fue éxitoso a nombre de <b> " + persona.NombreCompleto + "</b> </p>";
 
                     Correo.EnviarCorreo(resultado, "Gracias por usar nuestros servicios", "jvalverdea338@castrocarazo.ac.cr");
 
@@ -99,7 +101,8 @@ namespace Project06.Controllers
                 }
 
             }
-            Response.Write("<script language=javascript>alert('" + resultado + "')</script>");
+            string jsMensaje = resultado.Replace("<p>", "").Replace("</p>", "").Replace("<b>", "").Replace("</b>", "");
+            Response.Write("<script language=javascript>alert('" + jsMensaje + "')</script>");
             AgregaMonedaViewBag();
             return View();
 

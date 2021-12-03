@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "nuevaTransferencia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Agregar Transferencia</h2>
+
+<script>
+
+    function ComprobarCuentas() {
+        if (document.getElementById("id_cuentaOrigen").value === document.getElementById("id_cuentaDestino").value) {
+            document.getElementById("id_cuentaOrigen").value = ''
+            document.getElementById("id_cuentaDestino").value = ''
+            alert('No puede escoger la misma cuenta')
+        }
+    }
+
+
+</script>
+
+<form id="frmTransferencia" method="post">
+
+    <div class="form-group">
+        <label>Cuenta de origen</label>
+        <div>
+            <select id="id_cuentaOrigen" name="id_cuentaOrigen" class="form-control" style="width: 300px" required onchange="ComprobarCuentas()">
+                <option value="">Seleccione la Cuenta de origen</option>
+                @{
+                    foreach (Project06.Models.sp_CuentasUsuario_Result Cuenta in this.ViewBag.ListaCuenta)
+                    {
+                        <option value="@Cuenta.id_cuenta">@Cuenta.numeroCuenta</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label>Cuenta de destino</label>
+        <div>
+            <select id="id_cuentaDestino" name="id_cuentaDestino" class="form-control" style="width: 300px" required onchange="ComprobarCuentas()">
+                <option value="">Seleccione la Cuenta de destino</option>
+                @{
+                    foreach (Project06.Models.sp_RetornaCuentas_Result CuentaDes in this.ViewBag.ListaCuentaDestino)
+                    {
+                        <option value="@CuentaDes.id_cuenta">@CuentaDes.numeroCuenta - @CuentaDes.nombreCliente</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label>Monto:</label>
+        <input type="number" name="monto" id="monto" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Transferir" id="btnTransferir" />
+    </div>
+
+</form>

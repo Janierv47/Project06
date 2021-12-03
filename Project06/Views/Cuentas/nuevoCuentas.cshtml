@@ -8,19 +8,19 @@
 <form id="frmNuevoCuentas" method="post">
     <div class="form-group">
         <label>Número de cuenta:</label>
-        <input type="text" name="numeroCuenta" id="numeroCuenta" class="form-control" />
+        <input type="text" name="numeroCuenta" id="numeroCuenta" class="form-control" required/>
     </div>
 
 
     <div class="form-group" style=" display: inline-block">
         <label class="control-label">Cédula del Cliente:</label>
         <div class="control-label">
-            <select id="id_cliente" name="id_cliente" class="form-control" style="width: 300px">
+            <select id="id_cliente" name="id_cliente" class="form-control" style="width: 300px" required>
                 <option value="">Seleccione la cédula del cliente</option>
                 @{
                     foreach (Project06.Models.sp_RetornaCliente_Result IDCliente in this.ViewBag.ListaIDClientes)
                     {
-                        <option value="@IDCliente.id_cliente">@IDCliente.cedula</option>
+                                <option value="@IDCliente.id_cliente">@IDCliente.cedula - @IDCliente.nombre @IDCliente.primerApellido @IDCliente.segundoApellido</option>
                     }
                 }
             </select>
@@ -31,7 +31,7 @@
     <div class="form-group" style=" display: inline-block">
         <label class="control-label">Tipo de Cuenta:</label>
         <div class="control-label">
-            <select id="id_tipoCuenta" name="id_tipoCuenta" class="form-control" style="width: 300px">
+            <select id="id_tipoCuenta" name="id_tipoCuenta" class="form-control" style="width: 300px" required>
                 <option value="">Seleccione el tipo de cuenta</option>
                 @{
                     foreach (Project06.Models.sp_RetornaTipoCuenta_Result TipoCuenta in this.ViewBag.ListaTipoCuenta)
@@ -47,7 +47,7 @@
     <div class="form-group" style=" display: inline-block">
         <label class="control-label">Moneda:</label>
         <div class="control-label">
-            <select id="id_moneda" name="id_moneda" class="form-control" style="width: 300px">
+            <select id="id_moneda" name="id_moneda" class="form-control" style="width: 300px" required>
                 <option value="">Seleccione la Moneda</option>
                 @{
                     foreach (Project06.Models.sp_RetornaMoneda_Result Moneda in this.ViewBag.ListaMoneda)
@@ -63,13 +63,11 @@
 
 
     <div class="form-group">
-        <label>Saldo:</label>
-        <input type="number" name="saldo" id="saldo" class="form-control" />
+        <input type="hidden" name="saldo" id="saldo" value="50000" />
     </div>
 
     <div class="form-group">
-        <label>Estado:</label>
-        <input type="text" name="Estado" id="Estado" class="form-control" />
+        <input type="hidden" name="Estado" id="Estado" value="1" />
     </div>
 
     <div class="form-group">

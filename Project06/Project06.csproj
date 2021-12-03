@@ -135,8 +135,10 @@
     <Compile Include="Controllers\InicioColaboradorController.cs" />
     <Compile Include="Controllers\InicioSesionController.cs" />
     <Compile Include="Controllers\MonedasController.cs" />
+    <Compile Include="Controllers\RetiroController.cs" />
     <Compile Include="Controllers\TipoClienteController.cs" />
     <Compile Include="Controllers\TipoCuentaController.cs" />
+    <Compile Include="Controllers\TransferenciaController.cs" />
     <Compile Include="Filtros\ValidarSesion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -153,6 +155,9 @@
       <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_CuentasUsuario_Result.cs">
+      <DependentUpon>SucursalBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Deposito_Result.cs">
       <DependentUpon>SucursalBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
@@ -222,15 +227,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Audios\Audio1.mpeg" />
+    <Content Include="Audios\Audio2.mpeg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CSS\EstilosLogin.css" />
+    <Content Include="Content\CSS\InicioClienteSprite.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\ImagenesProject.png" />
+    <Content Include="Imagenes\Servicios2.png" />
+    <Content Include="Imagenes\Ahorro.gif" />
+    <Content Include="Imagenes\Servicios.png" />
     <Content Include="Models\SucursalBD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SucursalBD.edmx</DependentUpon>
@@ -277,6 +289,8 @@
     <Content Include="Scripts\TipoCuenta\nuevoTipoCuenta.js" />
     <Content Include="Scripts\TipoCuenta\RegistroTipoCuenta.js" />
     <Content Include="Scripts\Validaciones.js" />
+    <Content Include="Videos\Bancos.mp4" />
+    <Content Include="Videos\Bancos2.mp4" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -316,12 +330,11 @@
     <Content Include="Views\InicioColaborador\Colaborador.cshtml" />
     <Content Include="Views\InicioCliente\ClienteInicio.cshtml" />
     <Content Include="Views\InicioSesion\_Error.cshtml" />
-    <Content Include="Views\Deposito\Nuevo.cshtml" />
+    <Content Include="Views\Retiro\nuevoRetiro.cshtml" />
+    <Content Include="Views\Transferencia\nuevaTransferencia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Data\" />
-    <Folder Include="Views\Prueba\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
