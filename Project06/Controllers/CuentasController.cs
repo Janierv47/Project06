@@ -191,17 +191,18 @@ namespace Project06.Controllers
             return View(modeloVista);
 
         }
+        [HttpPost]
+        public ActionResult RetornaCuentasLista()
+        {
+            List<sp_RetornaCuentas_Result> listaCuentas =
+               this.modeloBD.sp_RetornaCuentas().ToList();
+            return Json(new
+            {
+                resultado = listaCuentas
+            });
+        }
     }
     //andrey
 
-    [HttpPost]
-    public ActionResult RetornaCuentasLista()
-    {
-        List<sp_RetornaCuentas_Result> listaCuentas =
-           this.modeloBD.sp_RetornaCuentas().ToList();
-        return Json(new
-        {
-            resultado = listaCuentas
-        });
-    }
+   
 }
